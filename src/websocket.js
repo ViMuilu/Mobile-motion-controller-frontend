@@ -1,6 +1,5 @@
-let socket = new WebSocket("ws://localhost:8000/ws");
+import { io } from 'socket.io-client';
 
-socket.onopen = () => console.log("Connected to WebSocket");
-socket.onmessage = (event) => console.log("Server:", event.data);
+const socket = io(`wss://${import.meta.env.VITE_LOCAL_IP}:${import.meta.env.VITE_SERVER_PORT}`);
 
 export default socket;
